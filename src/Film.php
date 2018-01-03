@@ -6,18 +6,6 @@ class Film extends FilmAbstract implements FilmInterface
 {
 
     /**
-     * @param string $manufacturer
-     * @param string $name
-     * @param int    $asa
-     */
-    public function __construct( $manufacturer, $name, $asa = null )
-    {
-        $this->setManufacturer( $manufacturer );
-        $this->setName( $name );
-        $this->setAsa( $asa );
-    }
-
-    /**
      * @return string
      */
     public function __toString()
@@ -27,7 +15,7 @@ class Film extends FilmAbstract implements FilmInterface
             $this->getName(),
             $this->getAsa()
         ];
-        return trim(implode(" ", $info));
+        return trim(implode(" ", array_filter($info)));
     }
 
 
